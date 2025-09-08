@@ -3,7 +3,11 @@
  * Index template (GenZTech)
  * Đây là file mặc định nếu không có template nào khác.
  */
-get_header();
+if (file_exists(get_template_directory() . '/views/header.php')) {
+    include get_template_directory() . '/views/header.php';
+} else {
+    get_header();
+}
 ?>
 
 <main id="site-content">
@@ -18,4 +22,10 @@ get_header();
     ?>
 </main>
 
-<?php get_footer(); ?>
+<?php
+if (file_exists(get_template_directory() . '/views/footer.php')) {
+    include get_template_directory() . '/views/footer.php';
+} else {
+    get_footer();
+}
+?>
